@@ -5,7 +5,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=50)
     post_date = models.DateField(editable=False)
     edit_date = models.DateField(editable=False)
-    content = models.CharField(max_length=1000)
+    content = models.TextField()
     image = models.ImageField(upload_to='images/')
 
     def save(self, *args, **kwargs):
