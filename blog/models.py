@@ -3,8 +3,8 @@ from django.utils import timezone
 
 class Blog(models.Model):
     title = models.CharField(max_length=50)
-    post_date = models.DateField(editable=False)
-    edit_date = models.DateField(editable=False)
+    post_date = models.DateTimeField(editable=False)
+    edit_date = models.DateTimeField(editable=False)
     content = models.TextField()
     image = models.ImageField(upload_to='images/')
 
