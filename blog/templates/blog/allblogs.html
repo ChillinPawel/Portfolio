@@ -1,13 +1,10 @@
 <!doctype html>
 <html lang="en">
+{% load static %}
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.80.0">
-    <title>Album example · Bootstrap v5.0</title>
+    <title>Pawel's blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
@@ -41,7 +38,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Pawel Jarubas</a>
+                <a class="navbar-brand" href="{% url 'home' %}">Pawel Jarubas</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -49,9 +46,9 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
-                        <a class="nav-link" href="#">LinkedIn</a>
-                        <a class="nav-link" href="#">Resume</a>
-                        <a class="nav-link active" href="#">Blog</a>
+                        <a class="nav-link" href="https://www.linkedin.com/in/pawe%C5%82-jarubas-864553168/?locale=en_US">LinkedIn</a>
+                        <a class="nav-link" href="{% static 'CV Pawel Jarubas EN.pdf' %}">Resume</a>
+                        <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
                         <a class="nav-link" href="#">PL</a>
                     </div>
                 </div>
@@ -66,31 +63,32 @@
             <br/>
             <h2>Latest Posts</h2>
             <hr/>
-            
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-                {% for blog in blogs.all %}
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h3>{{ blog.title }} </h3>
-                            <p>{{ blog.post_date }}</p>
-                            <hr/>
-                        </div>
+            {% for blog in blogs.all %}
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <a href="{% url 'detail' blog.id %}">
+                            <h3>{{ blog.title }} </h3> 
+                        </a> 
+                        <p>{{ blog.post_date_format }}</p>
+                        <hr/>
+                    </div>
+                    
+                    <div class="card-body">
+                        <img class="img-fluid" src="{{ blog.image.url }}" height=200 width=400/>
+                    </div>
+                    
 
-                        <img class="card-img-top" src="{{ blog.image.url }}" />
-
-                        <div class="card-body">
-                            <p class="card-text">{{ blog.content }}</p>
-                        </div>
-                        <div class="card-body">
-                            <p>last edit: {{ blog.edit_date }}</p>
-                        </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ blog.summary }}</p>
+                    </div>
+                    <div class="card-body">
+                        <p>last edit: {{ blog.edit_date_format }}</p>
                     </div>
                 </div>
-                {% endfor %}
-
             </div>
+            {% endfor %}
 
         </div>
 

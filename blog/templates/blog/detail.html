@@ -4,7 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Pawel Jarubas</title>
+    <title>{{ blog.title }}</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
 
 
@@ -46,7 +48,7 @@
                     <div class="navbar-nav ml-auto">
                         <a class="nav-link" href="https://www.linkedin.com/in/pawe%C5%82-jarubas-864553168/?locale=en_US">LinkedIn</a>
                         <a class="nav-link" href="{% static 'CV Pawel Jarubas EN.pdf' %}">Resume</a>
-                        <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+                        <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
                         <a class="nav-link" href="#">PL</a>
                     </div>
                 </div>
@@ -56,38 +58,23 @@
 
     <main>
 
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Well, hello there.</h1>
-                    <p class="lead text-muted">My name is Pawel and this is my portfolio page written in Python Django. Hope you will find what you like. 
-                        Have fun! </p>
-                    <p>
-                        <a href="mailto:pawel.jarubas@gmail.com" class="btn btn-primary my-2">Email Me</a>
-                    </p>
-                    <img src="{% static 'MyPhoto.jpg' %}" height=300/>
-                </div>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="text-center pt-3">{{ blog.title }} </h1> 
+                <p class="text-center pt-3">{{ blog.post_date_format }}</p>
+                <hr/>
             </div>
-        </section>
+            
+            <div class="card-body text-center">
+                <img class='img-fluid' src="{{ blog.image.url }}" height=700/>
+            </div>
+            
 
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-                    {% for job in jobs.all %}
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img class="img-fluid" src="{{ job.image.url }}"/>
-
-                            <div class="card-body">
-                                <p class="card-text">{{ job.summary }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-                </div>
+            <div class="card-body text-center">
+                <p class="card-text">{{ blog.content }}</p>
+            </div>
+            <div class="card-body text-center">
+                <p>last edit: {{ blog.edit_date_format }}</p>
             </div>
         </div>
 
