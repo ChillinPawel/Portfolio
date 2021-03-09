@@ -24,7 +24,7 @@ active
         
 
         <div class="card-body text-center">
-            <p class="card-text">{{ blog.content }}</p>
+            <p class="card-text">{{ blog.content|linebreaks }}</p>
         </div>
         <div class="card-body text-center">
             <p>last edit: {{ blog.edit_date_format }}</p>

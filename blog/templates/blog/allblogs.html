@@ -35,7 +35,7 @@ active
                 
 
                 <div class="card-body">
-                    <p class="card-text">{{ blog.summary }}</p>
+                    <p class="card-text">{{ blog.summary|linebreaks }}</p>
                 </div>
                 <div class="card-body">
                     <p>last edit: {{ blog.edit_date_format }}</p>

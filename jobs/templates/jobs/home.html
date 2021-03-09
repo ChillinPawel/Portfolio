@@ -34,7 +34,8 @@ Pawel Jarubas
                         <img class="img-fluid" src="{{ job.image.url }}"/>
 
                         <div class="card-body">
-                            <p class="card-text">{{ job.summary }}</p>
+                            <h3 class="card-text">{{ job.title }}</h3> 
+                            <p class="card-text">{{ job.summary|linebreaks }}</p>
                         </div>
                     </div>
                 </div>
