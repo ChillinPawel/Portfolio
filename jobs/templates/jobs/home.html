@@ -9,16 +9,24 @@ Pawel Jarubas
 
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Well, hello there.</h1>
+            <div class="col-lg-3 col-md-3 col-xs-3 mx-auto">
+                <img class="img-fluid" src="{% static 'MyPhoto.jpg' %}"/>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-3 mx-auto">
+                <h1 class="fw-light">Well, hello there!</h1>
                 <p class="lead text-muted">
-                    My name is Pawel and this is my portfolio page written in Python Django. Hope you will find what you like. 
-                    Have fun! 
+                    My name is Pawel and this is my portfolio page that I wrote using Python Django. Feel free to browse through and leave some comments. 
                 </p>
+                <p class="lead text-muted">Have fun!</p>
                 <p>
                     <a href="mailto:pawel.jarubas@gmail.com" class="btn btn-primary my-2">Email Me</a>
                 </p>
-                <img src="{% static 'MyPhoto.jpg' %}" height=300/>
+            </div>
+            <div class="col-lg-3 col-md-3 col-xs-3 mx-auto">
+                <p class="lead">
+                    Hometown 
+                </p>
+                <!-- google map to be added -->
             </div>
         </div>
     </section>
@@ -31,10 +39,9 @@ Pawel Jarubas
                 {% for job in jobs.all %}
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img class="img-fluid" src="{{ job.image.url }}"/>
-
                         <div class="card-body">
                             <h3 class="card-text">{{ job.title }}</h3> 
+                            <img class="img-fluid" src="{{ job.image.url }}"/>
                             <p class="card-text">{{ job.summary|linebreaks }}</p>
                         </div>
                     </div>
