@@ -7,31 +7,56 @@ Pawel Jarubas
 
 {% block main %}
 
-    <section class="py-5 text-center container">
-        <div class="row py-lg-5">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+
+    <div class="row py-lg-2 text-center">
+        <h1 class="fw-light">Well, hello there!</h1>
+    </div>
+    
+    <section class="text-center container">
+        <div class="row py-lg-2">
             <div class="col-lg-3 col-md-3 col-xs-3 mx-auto">
-                <img class="img-fluid" src="{% static 'MyPhoto.jpg' %}"/>
+                <img class="img-fluid" width=300 src="{% static 'MyPhoto.jpg' %}"/>
             </div>
+            <br/>
             <div class="col-lg-6 col-md-6 col-xs-3 mx-auto">
-                <h1 class="fw-light">Well, hello there!</h1>
+                
+                <p class="lead text-muted">My name is Pawel.</p>
                 <p class="lead text-muted">
-                    My name is Pawel and this is my portfolio page that I wrote using Python Django. Feel free to browse through and leave some comments. 
+                    This is my portfolio page that I wrote using Python Django. You can find the specifics in one of my blogs.
                 </p>
+                <p class="lead text-muted">Feel free to browse through and leave some comments.</p>
                 <p class="lead text-muted">Have fun!</p>
-                <p>
-                    <a href="mailto:pawel.jarubas@gmail.com" class="btn btn-primary my-2">Email Me</a>
-                </p>
+                <br/>
             </div>
             <div class="col-lg-3 col-md-3 col-xs-3 mx-auto">
-                <p class="lead">
-                    Hometown 
-                </p>
-                <!-- google map to be added -->
+                <div class="img-fluid" id='map' style='margin:auto; width: 300px; height: 300px'></div>
+                <script>
+                    mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpbGxpbnBhd2VsIiwiYSI6ImNrbWF4MDJ0MjFoMzEydmxhNzJkajk5MngifQ.AwbZ2c71ZJgerdCMrfw14A';
+                    {
+                        var latitide = 20.48;
+                        var longitude = 53.775;
+
+                        var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/mapbox/streets-v11',
+                        center: [latitide, longitude],
+                        zoom: 10
+
+                    });
+                    new mapboxgl.Marker().setLngLat([latitide, longitude]).addTo(map);
+                }
+                </script>
             </div>
         </div>
     </section>
 
-    <div class="album py-5 bg-light">
+    <div class="py-lg-4 gx-4 text-center">
+        <a href="mailto:pawel.jarubas@gmail.com" class="btn btn-primary my-2">Email Me</a>
+    </div>
+
+    <div class="album py-5">
         <div class="container">
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
