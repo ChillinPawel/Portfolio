@@ -13,10 +13,19 @@ active
 
     <div class="container">
         <h1 class="text-center pt-2">Comment's Section</h1>
-        <h3 class="text-center pt-2">Let me know what you think about the site and please keep it family friendly :)</h2>
+        <h4 class="text-center pt-2 text-muted">Let me know what you think about the site and please keep it family friendly :)</h2>
         <br/>
         <br/>
-        <h2>Latest Comments</h2>
+        <div class="row py-lg-2">
+            {% block addcomment %}{% endblock addcomment %}
+            <div class="col-lg-8 col-md-8 col-xs-8 mx-auto">
+                <h2>Latest Comments</h2>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 mx-auto">
+                <a {% block hidden %}{% endblock hidden %} href="{% url 'newcomment' %}" class="btn btn-primary my-2">Add Comment</a>
+            </div>
+        </div>  
+        
         <hr/>
 
         {% for comment in comments.all %}
