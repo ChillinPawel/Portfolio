@@ -5,7 +5,8 @@ hidden
 {% endblock hidden %}
 
 {% block addcomment %}
-<form action="{% url 'comments' %}" method="POST" style="margin-bottom: 30px; display:inline-block">
+
+<form method="POST" action= "{% url 'comments' %}" style="margin-bottom: 30px; display:inline-block" id="commentform">
     {% csrf_token %}
     
     <div class="col-md-4 my-1">
