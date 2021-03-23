@@ -11,6 +11,17 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants as messages
+
+# MESSAGES TAGS
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-secondary',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+ }
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -141,6 +152,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # V2
 RECAPTCHA_PUBLIC_KEY  = '6Lcdi4gaAAAAAFPg8oj_fBECGTkaUHNdiVghhblD'
 RECAPTCHA_PRIVATE_KEY = '6Lcdi4gaAAAAAObvWaPmKJfFk4YtoDkyX_Io9dY4'
+
+GOOGLE_VERIFY_RECAPTCHA_URL = 'https://www.google.com/recaptcha/api/siteverify'
 
 # NORECAPTCHA_SITE_KEY = '6Lcdi4gaAAAAAFPg8oj_fBECGTkaUHNdiVghhblD'
 # NORECAPTCHA_SECRET_KEY = '6Lcdi4gaAAAAAObvWaPmKJfFk4YtoDkyX_Io9dY4'

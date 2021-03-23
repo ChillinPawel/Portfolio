@@ -21,6 +21,8 @@ hidden
         oninput="this.setCustomValidity('')"></textarea>
     </div>
     <div class="col-auto my-1">
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <div class="g-recaptcha" data-sitekey="{{ site_key }}"></div>
         <button class="btn btn-primary" type="submit" style="vertical-align: top">Save Comment</button>
     </div>
 </form>
