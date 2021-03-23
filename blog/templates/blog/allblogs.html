@@ -18,32 +18,34 @@ active
         <h2>Latest Posts</h2>
         <hr/>
 
-        {% for blog in blogs.all %}
-        <div class="col">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <a href="{% url 'detail' blog.id %}">
-                        <h3>{{ blog.title }} </h3> 
-                    </a> 
-                    <p>{{ blog.post_date_format }}</p>
-                    <hr/>
-                </div>
-                
-                <div class="row">
-                    <div class="card-body col-lg-6 col-md-6 col-xs-6">
-                        <img class="img-fluid" src="{{ blog.image.url }}" height=150 width=400/>
-                    </div>
-                    <div class="card-body col-lg-6 col-md-6 col-xs-6">
-                        <p class="card-text">{{ blog.summary|linebreaks }}</p>
-                    </div>
-                </div>
+        <div class="container">
 
-                <div class="card-body">
-                    <p>last edit: {{ blog.edit_date_format }}</p>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+
+                {% for blog in blogs.all %}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <a href="{% url 'detail' blog.id %}">
+                                <h3>{{ blog.title }} </h3> 
+                            </a> 
+                            <p>{{ blog.post_date_format }}</p>
+                            <hr/>
+                        </div>
+                        
+                        <div class="card-body">
+                            <img class="img-fluid" src="{{ blog.image.url }}" height=150 width=300/>
+                            <p class="card-text">{{ blog.summary|linebreaks }}</p>
+                        </div>
+    
+                        <div class="card-body">
+                            <p class="card-text fw-light">last edit: {{ blog.edit_date_format }}</p>
+                        </div>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
-        {% endfor %}
 
     </div>
 
