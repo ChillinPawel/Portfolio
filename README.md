@@ -1,6 +1,8 @@
-# Portfolio
-Portfolio page in Python Django
+This is my first Python Django project written from scratch.
 
-This my first project in Python Django written from scratch. I tried to keep it simple and clean. 
+The following techologies have been used:
+- PostgreSQL for database
+- pipenv for dependency management
+- bootstrap for HTML structure and styling
 
-May add some new features in the future.
+Github is used here excusively for storing code, database required to run it properly is stored locally.
